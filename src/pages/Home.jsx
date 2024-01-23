@@ -6,6 +6,7 @@ import SwiperCore from "swiper";
 import { Navigation, Autoplay, Pagination } from "swiper/modules";
 import "swiper/css/bundle";
 import { IoIosTrendingUp } from "react-icons/io";
+import { CiBitcoin } from "react-icons/ci";
 
 import photo1 from "../assets/homeimg/1.jpg";
 import photo2 from "../assets/homeimg/2.jpg";
@@ -17,6 +18,7 @@ const list = [photo1, photo2, photo3, photo4];
 
 const Home = () => {
   const [trendingCrypto, setTrendingCrypto] = useState();
+  const [allCoins, setAllCoins] = useState();
 
   SwiperCore.use([Navigation]);
   SwiperCore.use([Autoplay]);
@@ -29,9 +31,15 @@ const Home = () => {
     );
     setTrendingCrypto(res.data.coins);
     // console.log(trendingCrypto)
-    console.log(res.data.coins);
+    // console.log(res.data.coins);
   };
+
+  // const fetchCoinData = async () => {
+  //   const res = await axios.get(`https://api.coingecko.com/api/v3/coins/list`);
+  //   setAllCoins(res.data);
+  // };
   useEffect(() => {
+    // fetchCoinData();
     fetchTrendingData();
   }, []);
 
@@ -91,24 +99,48 @@ const Home = () => {
           </div>
         </div>
       </div> */}
+      {/* <div className="flex flex-col">
+        <div
+          className="text-3xl md:text-7xl  flex gap-3 justify-center items-center
+       mx-auto text-gray-200 p-2 md:p-5  "
+        >
+          <span>Crypto's</span>
+          <CiBitcoin />
+        </div>
 
-      
-      <div className="text-3xl md:text-7xl  flex gap-3 justify-center items-center
-       mx-auto text-gray-200 p-2 md:p-5  ">
-        <span>Trending</span>
-        <IoIosTrendingUp />
+        <div className=" flex flex-wrap justify-center items-center ">
+          {allCoins?.map((coin) => (
+            <Card
+              imageUrls={coin.symbol}
+              name={coin.name}
+              // price={coin.item.data.price}
+            />
+          ))}
+        </div>
+      </div> */}
+
+
+
+      <div className="flex flex-col">
+        <div
+          className="text-3xl md:text-7xl  flex gap-3 justify-center items-center
+       mx-auto text-gray-200 p-2 md:p-5  font-bold"
+        >
+          <span >Trending</span>
+          <IoIosTrendingUp />
+        </div>
+
+        <div className=" flex flex-wrap justify-center items-center ">
+          {trendingCrypto?.map((coin) => (
+            <Card
+              imageUrls={coin.item.large}
+              name={coin.item.name}
+              price={coin.item.data.price}
+            />
+          ))}
+        </div>
       </div>
 
-
-      <div className=" flex flex-wrap justify-center items-center ">
-        {trendingCrypto?.map((coin) => (
-          <Card
-            imageUrls={coin.item.large}
-            name={coin.item.name}
-            price={coin.item.data.price}
-          />
-        ))}
-      </div>
     </div>
   );
 };
