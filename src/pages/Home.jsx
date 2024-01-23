@@ -7,6 +7,7 @@ import { Navigation, Autoplay, Pagination } from "swiper/modules";
 import "swiper/css/bundle";
 import { IoIosTrendingUp } from "react-icons/io";
 import { CiBitcoin } from "react-icons/ci";
+import { IoMdClose } from "react-icons/io";
 
 // import photo1 from "../assets/homeimg/1.jpg";
 // import photo2 from "../assets/homeimg/2.jpg";
@@ -14,6 +15,7 @@ import { CiBitcoin } from "react-icons/ci";
 // import photo4 from "../assets/homeimg/4.jpg";
 import { Link } from "react-router-dom";
 import Loader from "../components/Loader";
+import CryptoCard from "../components/CryptoCard";
 // import FTable from "../components/row";
 
 // const list = [photo1, photo2, photo3, photo4];
@@ -21,7 +23,11 @@ import Loader from "../components/Loader";
 const Home = () => {
   const [trendingCrypto, setTrendingCrypto] = useState();
   const [allCoins, setAllCoins] = useState();
-
+  const [open, setOpen] = useState(false);
+  function changeOpen() {
+    setOpen(!open);
+    // console.log(open)
+  }
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState();
 
@@ -38,11 +44,6 @@ const Home = () => {
     }
   };
 
-  function counter() {
-    let count = 0;
-    count++;
-    return count;
-  }
   const fetchCoinData = async () => {
     const counter = 0;
     try {
@@ -64,7 +65,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="container mx-auto min-h-screen">
+    <div className="container mx-auto min-h-screen h-full w-full">
       {/* <div className="w-full h-[500px]  ">
         <div className=" flex flex-col justify-between relative  w-full h-full  p-5">
           <div className="absolute top-0 bottom-0 left-0 right-0 p-0 h-full">
@@ -119,10 +120,11 @@ const Home = () => {
           </div>
         </div>
       </div> */}
+
       <div className="flex flex-col">
         <div
           className="text-3xl md:text-7xl  flex gap-3 justify-center items-center
-       mx-auto text-gray-200 p-2 md:p-5  font-bold"
+          mx-auto text-gray-200 p-2 md:p-5  font-bold"
         >
           <span>Trending</span>
           <IoIosTrendingUp />
@@ -132,15 +134,24 @@ const Home = () => {
         ) : (
           <div className=" flex flex-wrap justify-center items-center ">
             {trendingCrypto?.map((coin) => (
-              <Card
-                imageUrls={coin.item.large}
-                name={coin.item.name}
-                price={coin.item.data.price}
-              />
+              <Link to={coin.item.id}>
+              <div onClick={changeOpen}>
+
+                <Card
+                  imageUrls={coin.item.large}
+                  name={coin.item.name}
+                  price={coin.item.data.price}
+                />
+
+              </div>
+              </Link>
             ))}
           </div>
         )}
       </div>
+
+
+
       <div className="flex flex-col">
         <div
           className="text-3xl md:text-7xl  flex gap-3 justify-center items-center
@@ -201,6 +212,7 @@ const Home = () => {
           </div>
         )}
       </div>
+
     </div>
   );
 };
