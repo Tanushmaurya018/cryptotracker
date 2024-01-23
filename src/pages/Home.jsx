@@ -5,6 +5,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore from "swiper";
 import { Navigation, Autoplay, Pagination } from "swiper/modules";
 import "swiper/css/bundle";
+import { IoIosTrendingUp } from "react-icons/io";
 
 import photo1 from "../assets/homeimg/1.jpg";
 import photo2 from "../assets/homeimg/2.jpg";
@@ -90,6 +91,14 @@ const Home = () => {
           </div>
         </div>
       </div> */}
+
+      
+      <div className="text-3xl md:text-7xl  flex gap-3 justify-center items-center
+       mx-auto text-gray-200 p-2 md:p-5  ">
+        <span>Trending</span>
+        <IoIosTrendingUp />
+      </div>
+
 
       <div className=" flex flex-wrap justify-center items-center ">
         {trendingCrypto?.map((coin) => (
