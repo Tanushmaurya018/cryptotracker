@@ -39,7 +39,13 @@ const Home = () => {
     }
   };
 
+  function counter(){
+    let count =0 ;
+    count ++;
+    return count
+  }
   const fetchCoinData = async () => {
+    const counter=0;
     try {
       setLoading(true)
 
@@ -153,7 +159,8 @@ const Home = () => {
             <table className="w-full divide-y divide-gray-200 bg-gray-900 bg-opacity-30 backdrop-blur text-gray-300">
               <thead>
                 <tr className="">
-                  <th className="py-2 px-4">Image</th>
+                <th className="py-2 px-4">S.No</th>
+                <th className="py-2 px-4">Image</th>
                   <th className="py-2 px-4">Name</th>
                   <th className="py-2 px-4">Price</th>
                   <th className="py-2 px-4">Market Cap</th>
@@ -161,12 +168,13 @@ const Home = () => {
                 </tr>
               </thead>
               <tbody>
-                {allCoins?.map((coin) => (
+                {allCoins?.map((coin,index) => (
                   <tr className=" hover:bg-gray-100 text-center">
+                    <td className="py-2 px-4">{index +1}</td>
                     <td className="py-2 px-4 w-[30px] md:w-[50px] h-[30px] md:h-[50px]">
                       <img src={coin.image} />
                     </td>
-                    <td className="py-2 px-4">{coin.name}</td>
+                    <td className="py-2 px-4">{}</td>
                     <td className="py-2 px-4">
                       ${coin.current_price.toLocaleString()}
                     </td>
@@ -179,7 +187,7 @@ const Home = () => {
                         compactDisplay: "short",
                       })}
                     </td>
-                    <td>{coin.market_cap_change_24h.toLocaleString(undefined, {
+                    <td className="py-2 px-4">{coin.market_cap_change_24h.toLocaleString(undefined, {
                         minimumFractionDigits: 0,
                         maximumFractionDigits: 2,
                         notation: "compact",
