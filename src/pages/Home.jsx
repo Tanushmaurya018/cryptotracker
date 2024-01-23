@@ -105,55 +105,6 @@ const Home = () => {
       <div className="flex flex-col">
         <div
           className="text-3xl md:text-7xl  flex gap-3 justify-center items-center
-          mx-auto text-gray-200 p-2 md:p-5  "
-        >
-          <span>Crypto's</span>
-          <CiBitcoin />
-        </div>
-
-        <div className=" flex  justify-center items-center ">
-          <div className="overflow-x-scroll w-full">
-          <table className="w-full divide-y divide-gray-200 bg-gray-900 bg-opacity-30 backdrop-blur text-gray-300">
-            <thead>
-              <tr className="">
-                <th className="py-2 px-4">Image</th>
-                <th className="py-2 px-4">Name</th>
-                <th className="py-2 px-4">Price</th>
-                <th className="py-2 px-4">Market Cap</th>
-                <th className="py-2 px-4">Price</th>
-              </tr>
-            </thead>
-            <tbody>
-              {allCoins?.map((coin) => (
-                <tr className=" hover:bg-gray-100 text-center">
-                  <td className="py-2 px-4 w-[30px] md:w-[50px] h-[30px] md:h-[50px]">
-                    <img src={coin.image} />
-                  </td>
-                  <td className="py-2 px-4">{coin.name}</td>
-                  <td className="py-2 px-4">
-                    ${coin.current_price.toLocaleString()}
-                  </td>
-                  <td className="py-2 px-4">
-                    $
-                    {coin.market_cap.toLocaleString(undefined, {
-                      minimumFractionDigits: 0,
-                      maximumFractionDigits: 2,
-                      notation: "compact",
-                      compactDisplay: "short",
-                    })}
-                  </td>
-                </tr>
-              ))}
-              {/* Add more rows as needed */}
-            </tbody>
-          </table>
-          </div>
-        </div>
-      </div>
-
-      <div className="flex flex-col">
-        <div
-          className="text-3xl md:text-7xl  flex gap-3 justify-center items-center
        mx-auto text-gray-200 p-2 md:p-5  font-bold"
         >
           <span>Trending</span>
@@ -170,7 +121,54 @@ const Home = () => {
           ))}
         </div>
       </div>
+      <div className="flex flex-col">
+        <div
+          className="text-3xl md:text-7xl  flex gap-3 justify-center items-center
+          mx-auto text-gray-200 p-2 md:p-5  "
+        >
+          <span>Crypto's</span>
+          <CiBitcoin />
+        </div>
 
+        <div className=" flex  justify-center items-center ">
+          <div className="overflow-x-scroll w-full">
+            <table className="w-full divide-y divide-gray-200 bg-gray-900 bg-opacity-30 backdrop-blur text-gray-300">
+              <thead>
+                <tr className="">
+                  <th className="py-2 px-4">Image</th>
+                  <th className="py-2 px-4">Name</th>
+                  <th className="py-2 px-4">Price</th>
+                  <th className="py-2 px-4">Market Cap</th>
+                  <th className="py-2 px-4">Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                {allCoins?.map((coin) => (
+                  <tr className=" hover:bg-gray-100 text-center">
+                    <td className="py-2 px-4 w-[30px] md:w-[50px] h-[30px] md:h-[50px]">
+                      <img src={coin.image} />
+                    </td>
+                    <td className="py-2 px-4">{coin.name}</td>
+                    <td className="py-2 px-4">
+                      ${coin.current_price.toLocaleString()}
+                    </td>
+                    <td className="py-2 px-4">
+                      $
+                      {coin.market_cap.toLocaleString(undefined, {
+                        minimumFractionDigits: 0,
+                        maximumFractionDigits: 2,
+                        notation: "compact",
+                        compactDisplay: "short",
+                      })}
+                    </td>
+                  </tr>
+                ))}
+                {/* Add more rows as needed */}
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
