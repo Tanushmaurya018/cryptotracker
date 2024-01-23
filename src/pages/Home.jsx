@@ -8,38 +8,52 @@ import "swiper/css/bundle";
 import { IoIosTrendingUp } from "react-icons/io";
 import { CiBitcoin } from "react-icons/ci";
 
-import photo1 from "../assets/homeimg/1.jpg";
-import photo2 from "../assets/homeimg/2.jpg";
-import photo3 from "../assets/homeimg/3.jpg";
-import photo4 from "../assets/homeimg/4.jpg";
+// import photo1 from "../assets/homeimg/1.jpg";
+// import photo2 from "../assets/homeimg/2.jpg";
+// import photo3 from "../assets/homeimg/3.jpg";
+// import photo4 from "../assets/homeimg/4.jpg";
 import { Link } from "react-router-dom";
-import FTable from "../components/row";
+import Loader from "../components/Loader";
+// import FTable from "../components/row";
 
-const list = [photo1, photo2, photo3, photo4];
+// const list = [photo1, photo2, photo3, photo4];
 
 const Home = () => {
   const [trendingCrypto, setTrendingCrypto] = useState();
   const [allCoins, setAllCoins] = useState();
 
-  SwiperCore.use([Navigation]);
-  SwiperCore.use([Autoplay]);
-
-  SwiperCore.use([Pagination]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState();
 
   const fetchTrendingData = async () => {
-    const res = await axios.get(
-      `https://api.coingecko.com/api/v3/search/trending`
-    );
-    setTrendingCrypto(res.data.coins);
-    // console.log(trendingCrypto)
-    // console.log(res.data.coins);
+    try {
+      setLoading(true)
+      const res = await axios.get(
+        `https://api.coingecko.com/api/v3/search/trending`
+      );
+      setTrendingCrypto(res.data.coins);
+      setLoading(false)
+
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const fetchCoinData = async () => {
-    const res = await axios.get(`
-    https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=70&page=1&sparkline=false&locale=en`);
-    setAllCoins(res.data);
-    console.log(res.data);
+    try {
+      setLoading(true)
+
+      const res = await axios.get(`
+      https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=50&page=1&sparkline=false&locale=en\
+      `
+      )
+      console.log(res.data)
+      setAllCoins(res.data);
+      setLoading(false)
+
+    } catch (error) {
+      console.log(error);
+    }
   };
   useEffect(() => {
     fetchCoinData();
@@ -110,7 +124,8 @@ const Home = () => {
           <span>Trending</span>
           <IoIosTrendingUp />
         </div>
-
+      {
+        loading ? <Loader/> :
         <div className=" flex flex-wrap justify-center items-center ">
           {trendingCrypto?.map((coin) => (
             <Card
@@ -120,6 +135,8 @@ const Home = () => {
             />
           ))}
         </div>
+      }
+
       </div>
       <div className="flex flex-col">
         <div
@@ -129,7 +146,8 @@ const Home = () => {
           <span>Crypto's</span>
           <CiBitcoin />
         </div>
-
+      {
+        loading ? <Loader/> :
         <div className=" flex  justify-center items-center ">
           <div className="overflow-x-scroll w-full">
             <table className="w-full divide-y divide-gray-200 bg-gray-900 bg-opacity-30 backdrop-blur text-gray-300">
@@ -139,7 +157,7 @@ const Home = () => {
                   <th className="py-2 px-4">Name</th>
                   <th className="py-2 px-4">Price</th>
                   <th className="py-2 px-4">Market Cap</th>
-                  <th className="py-2 px-4">Price</th>
+                  <th className="py-2 px-4">Market Cap Change (24h)</th>
                 </tr>
               </thead>
               <tbody>
@@ -161,13 +179,20 @@ const Home = () => {
                         compactDisplay: "short",
                       })}
                     </td>
+                    <td>{coin.market_cap_change_24h.toLocaleString(undefined, {
+                        minimumFractionDigits: 0,
+                        maximumFractionDigits: 2,
+                        notation: "compact",
+                        compactDisplay: "short",
+                      })}</td>
                   </tr>
                 ))}
-                {/* Add more rows as needed */}
               </tbody>
             </table>
           </div>
         </div>
+      }
+
       </div>
     </div>
   );
