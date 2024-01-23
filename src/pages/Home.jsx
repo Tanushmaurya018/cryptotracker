@@ -13,6 +13,7 @@ import photo2 from "../assets/homeimg/2.jpg";
 import photo3 from "../assets/homeimg/3.jpg";
 import photo4 from "../assets/homeimg/4.jpg";
 import { Link } from "react-router-dom";
+import FTable from "../components/row";
 
 const list = [photo1, photo2, photo3, photo4];
 
@@ -34,17 +35,19 @@ const Home = () => {
     // console.log(res.data.coins);
   };
 
-  // const fetchCoinData = async () => {
-  //   const res = await axios.get(`https://api.coingecko.com/api/v3/coins/list`);
-  //   setAllCoins(res.data);
-  // };
+  const fetchCoinData = async () => {
+    const res = await axios.get(`
+    https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=70&page=1&sparkline=false&locale=en`);
+    setAllCoins(res.data);
+    console.log(res.data);
+  };
   useEffect(() => {
-    // fetchCoinData();
+    fetchCoinData();
     fetchTrendingData();
   }, []);
 
   return (
-    <div className="container mx-auto">
+    <div className="container mx-auto min-h-screen">
       {/* <div className="w-full h-[500px]  ">
         <div className=" flex flex-col justify-between relative  w-full h-full  p-5">
           <div className="absolute top-0 bottom-0 left-0 right-0 p-0 h-full">
@@ -99,34 +102,61 @@ const Home = () => {
           </div>
         </div>
       </div> */}
-      {/* <div className="flex flex-col">
+      <div className="flex flex-col">
         <div
           className="text-3xl md:text-7xl  flex gap-3 justify-center items-center
-       mx-auto text-gray-200 p-2 md:p-5  "
+          mx-auto text-gray-200 p-2 md:p-5  "
         >
           <span>Crypto's</span>
           <CiBitcoin />
         </div>
 
-        <div className=" flex flex-wrap justify-center items-center ">
-          {allCoins?.map((coin) => (
-            <Card
-              imageUrls={coin.symbol}
-              name={coin.name}
-              // price={coin.item.data.price}
-            />
-          ))}
+        <div className=" flex  justify-center items-center ">
+          <div className="overflow-x-scroll w-full">
+          <table className="w-full divide-y divide-gray-200 bg-gray-900 bg-opacity-30 backdrop-blur text-gray-300">
+            <thead>
+              <tr className="">
+                <th className="py-2 px-4">Image</th>
+                <th className="py-2 px-4">Name</th>
+                <th className="py-2 px-4">Price</th>
+                <th className="py-2 px-4">Market Cap</th>
+                <th className="py-2 px-4">Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              {allCoins?.map((coin) => (
+                <tr className=" hover:bg-gray-100 text-center">
+                  <td className="py-2 px-4 w-[30px] md:w-[50px] h-[30px] md:h-[50px]">
+                    <img src={coin.image} />
+                  </td>
+                  <td className="py-2 px-4">{coin.name}</td>
+                  <td className="py-2 px-4">
+                    ${coin.current_price.toLocaleString()}
+                  </td>
+                  <td className="py-2 px-4">
+                    $
+                    {coin.market_cap.toLocaleString(undefined, {
+                      minimumFractionDigits: 0,
+                      maximumFractionDigits: 2,
+                      notation: "compact",
+                      compactDisplay: "short",
+                    })}
+                  </td>
+                </tr>
+              ))}
+              {/* Add more rows as needed */}
+            </tbody>
+          </table>
+          </div>
         </div>
-      </div> */}
-
-
+      </div>
 
       <div className="flex flex-col">
         <div
           className="text-3xl md:text-7xl  flex gap-3 justify-center items-center
        mx-auto text-gray-200 p-2 md:p-5  font-bold"
         >
-          <span >Trending</span>
+          <span>Trending</span>
           <IoIosTrendingUp />
         </div>
 
