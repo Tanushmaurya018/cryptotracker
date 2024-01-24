@@ -125,7 +125,7 @@ const [click,setClick]=useState(false)
           </div>
         </div>
       </div> */}
-      {/* <Hero/> */}
+      <Hero/>
 
       <div id="#trending" className=" flex flex-col">
         <div
