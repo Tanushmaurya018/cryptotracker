@@ -17,6 +17,7 @@ import { Link } from "react-router-dom";
 import Loader from "../components/Loader";
 import CryptoCard from "../components/CryptoCard";
 import Hero from "../components/Hero";
+import Search from "../components/Search";
 // import FTable from "../components/row";
 
 // const list = [photo1, photo2, photo3, photo4];
@@ -126,7 +127,7 @@ const [click,setClick]=useState(false)
         </div>
       </div> */}
       <Hero/>
-
+      <Search/>
       <div id="#trending" className=" flex flex-col">
         <div
           className="text-3xl md:text-7xl  flex gap-3 justify-center items-center
