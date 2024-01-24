@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import Menu from "./Menu";
 import { FaPhoneAlt } from "react-icons/fa";
-
+import logo from "../assets/logo.png"
 const user = false;
 const Navbar = () => {
   const [click,setClick]=useState(false)
@@ -20,7 +20,7 @@ const Navbar = () => {
 
       <div className="text-xl md:text-2xl text-center flex-1">
         <Link to="/" className="font-bold ">
-          CryptoTracker
+          <img src={logo} className="w-[200px] md:w-[300px]"/>
         </Link>
       </div>
 
