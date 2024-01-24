@@ -162,7 +162,7 @@ const [click,setClick]=useState(false)
           className="text-3xl md:text-7xl  flex gap-3 justify-center items-center
           mx-auto text-gray-200 p-2 md:p-5  "
         >
-          <div className="text-2xl flex gap-5 rounded-3xl bg-gray-500 bg-opacity-30 backdrop-blur p-5">
+          <div className="text-xl w-full md:text-2xl flex gap-5 rounded-3xl bg-gray-500 bg-opacity-30 backdrop-blur p-5">
           <Link onClick={clicked} className={click ? "bg-white text-black" : "bg-transparent text-white"} to="/cryptocurrencies">Cryptocurrencies</Link>
           <Link onClick={clicked} className={click ? "bg-white text-black" : "bg-transparent text-white"} to="/categories">Categories</Link>
           <Link onClick={clicked} className={click ? "bg-white text-black" : "bg-transparent text-white"} to="/nfts">NFT's</Link>
