@@ -35,7 +35,7 @@ Welcome to the Cryptocurrency Tracker Website! This project is designed to provi
 
 ## Feedback and Contributions
 
-We welcome feedback and contributions from the community. If you have suggestions, find issues, or want to contribute to the project, please visit our [GitHub repository]https://github.com/Tanushmaurya018/cryptotracker.
+We welcome feedback and contributions from the community. If you have suggestions, find issues, or want to contribute to the project, please visit our [GitHub repository](https://github.com/Tanushmaurya018/cryptotracker).
 
 ## Disclaimer
 
