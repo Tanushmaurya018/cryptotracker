@@ -9,11 +9,11 @@ Welcome to the Cryptocurrency Tracker Website! This project is designed to provi
 
 1. **Real-Time Data:** Get live updates on cryptocurrency prices, market capitalization, and trading volumes.
 
-2. **Customization:** Tailor your experience by selecting specific cryptocurrencies to track and setting personalized price alerts.
+<!-- 2. **Customization:** Tailor your experience by selecting specific cryptocurrencies to track and setting personalized price alerts. -->
 
-3. **Historical Data:** Access historical price charts and performance data to analyze trends over time.
+2. **Historical Data:** Access historical price charts and performance data to analyze trends over time.
 
-4. **User-Friendly Interface:** Intuitive design for easy navigation and a seamless user experience.
+3. **User-Friendly Interface:** Intuitive design for easy navigation and a seamless user experience.
 
 ## Who is it For?
 
