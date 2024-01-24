@@ -24,15 +24,12 @@ const Menu = () => {
             open ? <IoMdClose onClick={changeOpen}/> : <FaBars onClick={changeOpen}/>
         }
       {open && (
-        <div className="absolute left-0 top-16 bg-red-500 w-full h-[calc(100vh-4rem)]">
+        <div className="z-[999] absolute left-0 top-16 bg-red-500 w-full h-screen">
           <div className="flex flex-col gap-10 text-center items-center justify-center h-full text-white text-3xl">
-            {links.map((link) => {
-              return (
-                <Link href={link.url} key={link.id} onClick={changeOpen}>
-                  {link.title}
-                </Link>
-              );
-            })}
+          <Link onClick={changeOpen} className={"bg-gray-500 py-2 rounded-full px-5 text-white"} to="/cryptocurrencies">Cryptocurrencies</Link>
+          <Link onClick={changeOpen} className={"bg-gray-500 py-2 rounded-full px-5 text-white"} to="/categories">Categories</Link>
+          <Link onClick={changeOpen} className={"bg-gray-500 py-2 rounded-full px-5 text-white"} to="/nfts">NFT's</Link>
+          {/* <Link onClick={clicked} className={click ? "bg-gray-500 py-2 rounded-full px-5 text-black" : "bg-transparent text-white"} to="/contracts">Contracts</Link> */}
           </div>
           
         </div>

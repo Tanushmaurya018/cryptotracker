@@ -16,6 +16,7 @@ import { IoMdClose } from "react-icons/io";
 import { Link } from "react-router-dom";
 import Loader from "../components/Loader";
 import CryptoCard from "../components/CryptoCard";
+import Hero from "../components/Hero";
 // import FTable from "../components/row";
 
 // const list = [photo1, photo2, photo3, photo4];
@@ -59,6 +60,10 @@ const Home = () => {
       console.log(error);
     }
   };
+const [click,setClick]=useState(false)
+  const clicked =()=>{
+    setClick(!click)
+  }
   useEffect(() => {
     fetchCoinData();
     fetchTrendingData();
@@ -120,8 +125,9 @@ const Home = () => {
           </div>
         </div>
       </div> */}
+      {/* <Hero/> */}
 
-      <div className="flex flex-col">
+      <div id="#trending" className=" flex flex-col">
         <div
           className="text-3xl md:text-7xl  flex gap-3 justify-center items-center
           mx-auto text-gray-200 p-2 md:p-5  font-bold"
@@ -151,13 +157,18 @@ const Home = () => {
       </div>
 
 
-
-      <div className="flex flex-col">
+      <div id="#allcoin" className=" flex flex-col">
         <div
           className="text-3xl md:text-7xl  flex gap-3 justify-center items-center
           mx-auto text-gray-200 p-2 md:p-5  "
         >
-          <span>Crypto's</span>
+          <div className="text-2xl flex gap-5 rounded-3xl bg-gray-500 bg-opacity-30 backdrop-blur p-5">
+          <Link onClick={clicked} className={click ? "bg-white text-black" : "bg-transparent text-white"} to="/cryptocurrencies">Cryptocurrencies</Link>
+          <Link onClick={clicked} className={click ? "bg-white text-black" : "bg-transparent text-white"} to="/categories">Categories</Link>
+          <Link onClick={clicked} className={click ? "bg-white text-black" : "bg-transparent text-white"} to="/nfts">NFT's</Link>
+          <Link onClick={clicked} className={click ? "bg-white text-black" : "bg-transparent text-white"} to="/contracts">Contracts</Link>
+          </div>
+          {/* <span>Crypto's</span> */}
           <CiBitcoin />
         </div>
         {loading ? (

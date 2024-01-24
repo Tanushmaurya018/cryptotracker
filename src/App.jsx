@@ -6,6 +6,11 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import bgVideo from "./assets/bg-video.mp4";
 import CryptoCard from "./components/CryptoCard";
+import Cryptocurrencies from "./components/cryptocurrencies";
+import Contracts from "./components/Contracts";
+import Nfts from "./components/Nfts";
+import Categories from "./components/Categories";
+
 const App = () => {
   return (
     <div>
@@ -19,14 +24,20 @@ const App = () => {
         {/* Add additional source tags for other video formats if needed */}
         Your browser does not support the video tag.
       </video>
+
       <Navbar />
+
       <Routes>
         <Route path="/" element={<Home />}></Route>
-        <Route path="/:id" element={<CryptoCard />}></Route>
-        <Route></Route>
-        <Route></Route>
+        <Route path="/list/:id" element={<CryptoCard />}></Route>
+        <Route path="/cryptocurrencies" element={<Cryptocurrencies />}></Route>
+        <Route path="/categories" element={<Categories />}></Route>
+        <Route path="/nfts" element={<Nfts />}></Route>
+        <Route path="/contracts" element={<Contracts />}></Route>
       </Routes>
+
       <Footer />
+
     </div>
   );
 };
