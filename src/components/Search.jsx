@@ -2,11 +2,12 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import { FaSearch } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Search = () => {
   const [form, setForm] = useState("");
   const [data, setData] = useState();
-
+    const [id,setId] =useState()
   const fetchData = async () => {
     const res =
       await axios.get(`https://api.coingecko.com/api/v3/search?query=${form}
@@ -47,9 +48,11 @@ const Search = () => {
         <div className="flex flex-wrap justify-center items-center">
           {data?.coins?.length > 0 ? (
             data.coins.map((coin, index) => (
+              <Link to={`/list/${coin.id}`}>
               <div className="flex">
                 <Card imageUrls={coin.large} name={coin.name} />
               </div>
+              </Link>
             ))
           ) : (
             <div className="text-white font-bold text-4xl">

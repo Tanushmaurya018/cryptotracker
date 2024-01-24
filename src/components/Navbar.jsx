@@ -33,7 +33,7 @@ const Navbar = () => {
       </div> */}
 
 
-<div className="hidden md:flex text-2xl  gap-5 rounded-3xl bg-gray-500 bg-opacity-30 backdrop-blur p-5">
+<div className="hidden md:flex text-2xl  gap-5 rounded-3xl  bg-opacity-30 backdrop-blur ">
           <Link onClick={clicked} className={click ? "bg-gray-500 py-2 rounded-full px-5 text-black" : "bg-transparent text-white"} to="/cryptocurrencies">Cryptocurrencies</Link>
           <Link onClick={clicked} className={click ? "bg-gray-500 py-2 rounded-full px-5 text-black" : "bg-transparent text-white"} to="/categories">Categories</Link>
           <Link onClick={clicked} className={click ? "bg-gray-500 py-2 rounded-full px-5 text-black" : "bg-transparent text-white"} to="/nfts">NFT's</Link>

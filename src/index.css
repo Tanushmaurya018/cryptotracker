@@ -1,6 +1,24 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
 
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
 
+/* Track */
+::-webkit-scrollbar-track {
+  background: gray;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: black;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: white;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,3 +26,5 @@
 html {
     scroll-behavior: smooth;
   }
+
+  

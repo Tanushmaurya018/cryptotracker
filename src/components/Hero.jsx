@@ -4,7 +4,7 @@ const Hero = () => {
     <div className="p-10">
 
       <div className="w-full h-[500px] bg-gray-700 overflow-hidden bg-opacity-30 backdrop-blur rounded-3xl flex p-5 flex-col md:flex-row">
-        <div className="w-full md:w-1/2 flex flex-col gap-4 lg:gap-10">
+        <div className="w-full md:w-1/2 flex flex-col gap-4 lg:gap-10 items-center justify-evenly" >
           <h1 className="text-gray-100 text-xl lg:text-5xl  font-Anton text-center md:text-left">
             Navigate Your Crypto Journey with Precision
           </h1>
@@ -16,7 +16,7 @@ const Hero = () => {
             favorite assets in real-time, analyze historical performance, and
             stay updated with the latest market trends
           </p>
-          <div className="flex justify-between">
+          {/* <div className="flex justify-between">
             <a href="#trending">
               <button className=" px-2 text-[12px] md:text-xl lg:px-10 bg-orange-700 text-white rounded-full py-1 md:py-2">
                 Show Trends
@@ -25,7 +25,7 @@ const Hero = () => {
             <button className=" px-2 text-[12px] md:text-xl lg:px-10 bg-orange-700 text-white rounded-full py-1 md:py-2">
               Show Crypto Coins
             </button>
-          </div>
+          </div> */}
         </div>
         <div className="w-full md:w-1/2  flex justify-center items-center h-full">
           <iframe
