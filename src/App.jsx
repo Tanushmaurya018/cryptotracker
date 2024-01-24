@@ -9,7 +9,7 @@ import CryptoCard from "./components/CryptoCard";
 import Cryptocurrencies from "./components/cryptocurrencies";
 import Contracts from "./components/Contracts";
 import Nfts from "./components/Nfts";
-import Categories from "./components/Categories";
+import Categories from "./components/categories";
 
 const App = () => {
   return (
