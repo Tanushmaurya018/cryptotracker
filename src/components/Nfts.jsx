@@ -30,6 +30,8 @@ const Nfts = () => {
       ) : (
         <div className=" flex  justify-center items-center  p-5">
           <div className="overflow-x-scroll w-full">
+          <h1 className="p-5 text-center md:text-left text-white md:text-6xl text-xl font-Anton">NFT's :</h1>
+
             <table className="w-full divide-y divide-gray-200 bg-gray-900 bg-opacity-30 backdrop-blur text-gray-300">
               <thead>
                 <tr className="">
