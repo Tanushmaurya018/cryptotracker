@@ -9,6 +9,9 @@ const CryptoCard = () => {
   const [loading, setLoading] = useState(false);
 
   console.log(params.id);
+
+
+  
   async function fetchData() {
     try {
       setLoading(true);
@@ -38,8 +41,9 @@ const CryptoCard = () => {
             <Loader />
           ) : (
             <div className="flex flex-col justify-center gap-5 h-full w-full">
-              <h1 className="text-7xl">{data?.name}</h1>
+              <h1 className="text-7xl flex justify-center items-center">{data?.name}</h1>
               <div className="flex md:flex-row flex-col  h-full ">
+
                 <div className="flex flex-col justify-evenly  w-full items-center  h-full md:w-1/3 ">
                   <img
                     className="w-[200px] h-[200px] "
@@ -57,10 +61,13 @@ const CryptoCard = () => {
 
                 <div className="w-full flex justify-evenly items-center md:w-2/3 overflow-y-scroll">
                   <p className="text-sm md:text-xl p-5">
-                    <span className="text-lg md:text-3xl">Description : </span>
+                    <span className="text-lg md:text-4xl">Description : </span>
                     {data?.description.en}
                   </p>
-                  <div className=""></div>
+
+                  <div className="">
+
+                  </div>
                 </div>
               </div>
             </div>
