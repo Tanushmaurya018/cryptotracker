@@ -18,11 +18,11 @@ const Hero = () => {
           </p>
           <div className="flex justify-between">
             <a href="#trending">
-              <button className=" px-3 text-sm lg:px-10 bg-orange-700 text-white rounded-full py-1 md:py-2">
+              <button className=" px-2 text-[12px] md:text-xl lg:px-10 bg-orange-700 text-white rounded-full py-1 md:py-2">
                 Show Trends
               </button>
             </a>
-            <button className=" px-3 text-sm lg:px-10 bg-orange-700 text-white rounded-full py-1 md:py-2">
+            <button className=" px-2 text-[12px] md:text-xl lg:px-10 bg-orange-700 text-white rounded-full py-1 md:py-2">
               Show Crypto Coins
             </button>
           </div>
@@ -30,7 +30,7 @@ const Hero = () => {
         <div className="w-full md:w-1/2  flex justify-center items-center h-full">
           <iframe
             src="https://gifer.com/embed/UUcK"
-            className="h-[150px] w-[150px] md:w-full md:h-[300px] rounded-full"
+            className="h-[120px] w-[120px] md:w-full md:h-[300px] rounded-full"
           ></iframe>
           {/* <p>
           <a href="https://gifer.com">via GIFER</a>
