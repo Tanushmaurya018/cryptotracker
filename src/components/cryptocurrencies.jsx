@@ -30,7 +30,7 @@ const Cryptocurrencies = () => {
       ) : (
         <div className=" flex  justify-center items-center ">
           <div className="overflow-x-scroll w-full">
-          <h1 className="p-5 text-center md:text-left text-white md:text-6xl text-xl font-Anton">Cryptocurrencies :</h1>
+          <h1 className="p-2 text-center md:text-left text-white md:text-6xl text-xl font-Anton">Cryptocurrencies :</h1>
 
             <table className="w-full divide-y divide-gray-200 bg-gray-900 bg-opacity-30 backdrop-blur text-gray-300">
               <thead>
