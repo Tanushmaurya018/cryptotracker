@@ -52,11 +52,11 @@ const Cryptocurrencies = () => {
                     </td>
                     <td className="py-2 px-4">{coin.name}</td>
                     <td className="py-2 px-4">
-                      ${coin.current_price.toLocaleString()}
+                      ${coin.current_price?.toLocaleString()}
                     </td>
                     <td className="py-2 px-4">
                       $
-                      {coin.market_cap.toLocaleString(undefined, {
+                      {coin.market_cap?.toLocaleString(undefined, {
                         minimumFractionDigits: 0,
                         maximumFractionDigits: 2,
                         notation: "compact",
@@ -64,7 +64,7 @@ const Cryptocurrencies = () => {
                       })}
                     </td>
                     <td className="py-2 px-4">
-                      {coin.market_cap_change_24h.toLocaleString(undefined, {
+                      {coin.market_cap_change_24h?.toLocaleString(undefined, {
                         minimumFractionDigits: 0,
                         maximumFractionDigits: 2,
                         notation: "compact",
